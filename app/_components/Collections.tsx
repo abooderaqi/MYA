@@ -17,15 +17,6 @@ const Collections = async () => {
         ) : (
           <div className="flex gap-4 justify-center items-center">
             {collections?.map((collection) => (
-              // <Link href={`/collections/${collection.id}`} key={collection.id}>
-              //   <Image
-              //     src={collection?.image}
-              //     alt={collection.title}
-              //     width={350}
-              //     height={200}
-              //     className="rounded-xl cursor-pointer"
-              //   />
-              // </Link>
               <Link href={`/collections/${collection.id}`} key={collection.id}>
                 <div className="relative h-[200px] w-[350px] rounded-xl overflow-hidden hover:scale-105 ">
                   <Image

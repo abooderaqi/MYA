@@ -1,5 +1,6 @@
 "use server"
 
+import { CartItem } from "./../../types.d"
 import { db } from "../../db"
 import { z } from "zod"
 import { auth } from "@clerk/nextjs/server"
@@ -82,6 +83,7 @@ export const createOrder = async (
           0
         ),
         shippingAddress: shippingAddress,
+        quantity: items.map((item) => item.quantity),
         createdAt: new Date(Date.now()),
         updatedAt: new Date(Date.now()),
       },

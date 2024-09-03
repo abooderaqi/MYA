@@ -1,4 +1,4 @@
-type CollectionType = {
+export type CollectionType = {
   id: string
   title: string
   description: string
@@ -8,7 +8,7 @@ type CollectionType = {
   createdAt: Date
 }
 
-type ProductType = {
+export type ProductType = {
   id: string
   title: string
   description: string
@@ -24,7 +24,7 @@ type ProductType = {
   updatedAt: Date
 }
 
-type UserType = {
+export type UserType = {
   clerkId: string
   wishlist: [string]
   orders: [string]
@@ -32,7 +32,7 @@ type UserType = {
   updatedAt: Date
 }
 
-type CartItem = {
+export type CartItem = {
   item: productType
   quantity: number
   color?: string
