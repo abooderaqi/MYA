@@ -10,6 +10,11 @@ module.exports = withMT({
     "./src/**/*.{ts,tsx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    {
+      pattern: /bg-+/,
+    },
+  ],
   prefix: "",
   theme: {
     container: {
@@ -85,5 +90,6 @@ module.exports = withMT({
       },
     },
   },
+
   plugins: [require("tailwindcss-animate"), nextui()],
 })

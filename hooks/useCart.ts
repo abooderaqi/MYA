@@ -2,13 +2,6 @@ import { create } from "zustand"
 import { toast } from "react-hot-toast"
 import { persist, createJSONStorage } from "zustand/middleware"
 
-interface CartItem {
-  item: ProductType
-  quantity: number
-  color?: string
-  size?: string
-}
-
 interface CartStore {
   cartItems: CartItem[]
   addItem: (item: CartItem) => void

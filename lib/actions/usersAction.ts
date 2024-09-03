@@ -8,16 +8,19 @@ export const getUsers = async () => {
     const User = await auth()
     if (!User.userId) throw "Unauthorized user"
 
-    let user = await db.user.findUnique({ where: { clerkId: User.userId } })
+    let user = await db.user.findUnique({
+      where: { clerkId: User.userId },
+      include: { orders: true },
+    })
     if (!user) {
       user = await db.user.create({
         data: {
           clerkId: User.userId,
           wishlist: [],
-          orders: [],
           createdAt: new Date(Date.now()),
           updatedAt: new Date(),
         },
+        include: { orders: true },
       })
     }
     return user

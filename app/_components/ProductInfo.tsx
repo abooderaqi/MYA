@@ -4,6 +4,7 @@ import { useState } from "react"
 import Heart from "./Heart"
 import { MinusCircle, PlusCircle } from "lucide-react"
 import { useCart } from "@/hooks/useCart"
+import FeaturesContainer from "./ui/Features"
 
 const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
   const [selectedColor, setSelectedColor] = useState<String>(
@@ -14,12 +15,12 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
 
   const { addItem } = useCart()
   return (
-    <div className="max-w-[400px] flex flex-col gap-4">
+    <div className=" max-w-[400px] flex flex-col gap-4">
       <div className="flex justify-between items-center">
         <p className="font-bold text-2xl">{productInfo?.title}</p>
         <Heart id={productInfo.id} />
       </div>
-      <div className="flex gap-2 items-center">
+      <div className="flex gap-2 items-center ">
         <p className="text-gray-500 text-lg">Category:</p>
         <p className="font-bold">{productInfo.category}</p>
       </div>
@@ -35,7 +36,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
         <div className="flex flex-col gap-2">
           <p className="text-lg text-gray-500">Colors:</p>
           <div className="flex gap-2">
-            {productInfo.colors.map((color, index) => (
+            {productInfo.colors.map((color: string, index: number) => (
               <p
                 key={index}
                 className={`border border-black px-2 py-1 rounded-xl cursor-pointer ${
@@ -54,7 +55,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
         <div className="flex flex-col gap-2">
           <p className="text-lg text-gray-500">Sizes:</p>
           <div className="flex gap-2">
-            {productInfo.sizes.map((size, index) => (
+            {productInfo.sizes.map((size: string, index: number) => (
               <p
                 key={index}
                 className={`border border-black px-2 py-1 rounded-xl cursor-pointer ${
@@ -88,13 +89,15 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
           addItem({
             item: productInfo,
             quantity,
-            color: selectedColor,
-            size: selectedSize,
+            color: selectedColor as string,
+            size: selectedSize as string,
           })
         }
       >
         Add to Cart
       </button>
+      <hr />
+      <FeaturesContainer />
     </div>
   )
 }

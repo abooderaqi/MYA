@@ -17,17 +17,25 @@ const Navbar = () => {
   const { cartItems } = useCart()
 
   return (
-    <div className="sticky top-0 z-10 py-2 px-10 flex justify-between items-center bg-white">
+    <div className="sticky top-0 z-10 py-1 px-10 flex justify-between items-center bg-white">
       <Link href={"/"}>
         <Image src="/logo.png" alt="logo" width={130} height={100} />
       </Link>
-      <div>
-        <Link href={"/"}>Home</Link>
+      <div className="flex justify-center items-center text-xl gap-10 font-semibold ">
+        <Link href={"/"} className="hover:opacity-75 cursor-pointer">
+          Home
+        </Link>
+        <Link href={"/collections"} className="hover:opacity-75 cursor-pointer">
+          Collections
+        </Link>
+        <Link href={"/products"} className="hover:opacity-75 cursor-pointer">
+          Products
+        </Link>
       </div>
       <div className="flex gap-3 items-center">
         <Link
           href={"/cart"}
-          className="flex items-center gap-3 border rounded-xl px-2 py-1 hover:bg-black hover:text-white"
+          className="flex items-center gap-3 rounded-xl px-2 py-1 hover:bg-black hover:text-white"
         >
           <ShoppingCart />
           <p className="font-bold">Cart ({cartItems.length})</p>
