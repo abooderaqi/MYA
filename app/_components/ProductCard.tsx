@@ -5,8 +5,10 @@ import { ProductType } from "@/types"
 
 import Image from "next/image"
 import Link from "next/link"
+import { useState } from "react"
 
 const ProductCard = ({ product }: { product: ProductType }) => {
+  const [isHover, setIsHover] = useState(false)
   const { addItem } = useCart()
   return (
     <section className="py-24">
