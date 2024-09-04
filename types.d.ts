@@ -1,36 +1,9 @@
-export type CollectionType = {
-  id: string
-  title: string
-  description: string
-  image: string
-  Product: ProductType[]
-  updatedAt: Date
-  createdAt: Date
-}
+import { ProductType } from "./types.d"
+import { Prisma } from "@prisma/client"
 
-export type ProductType = {
-  id: string
-  title: string
-  description: string
-  media: [string]
-  category: string
-  Collection: CollectionType[]
-  tags: [string]
-  sizes: [string]
-  colors: [string]
-  price: number
-  expense: number
-  createdAt: Date
-  updatedAt: Date
-}
-
-export type UserType = {
-  clerkId: string
-  wishlist: [string]
-  orders: [string]
-  createdAt: Date
-  updatedAt: Date
-}
+export type CollectionType = Prisma.Payload.CollectionType<{}>
+export type ProductType = Prisma.Payload.ProductType<{}>
+export type UserType = Prisma.Payload.UserType<{}>
 
 export type CartItem = {
   item: productType

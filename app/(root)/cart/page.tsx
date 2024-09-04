@@ -6,14 +6,15 @@ import Image from "next/image"
 
 import { ArrowRight, MinusCircle, PlusCircle, Trash } from "lucide-react"
 import { useCart } from "@/hooks/useCart"
-import { checkOut } from "@/lib/actions/checkoutAction"
 import Link from "next/link"
 
 const Cart = () => {
   const router = useRouter()
+  const { user } = useUser()
   const { cartItems, increaseQuantity, decreaseQuantity, removeItem } =
     useCart()
 
+  console.log(user?.id)
   const subTotal = cartItems.reduce(
     (acc, cartItem) => acc + cartItem.item.price * cartItem.quantity,
     0
@@ -87,13 +88,23 @@ const Cart = () => {
           <span>Total:</span>
           <span>${subtotalRounded}</span>
         </div>
-        <button
-          className="border border-black rounded-xl font-bold bg-white py-3 w-full hover:bg-black hover:text-white"
-          onClick={() => router.push("/cart/checkout")}
-          disabled={cartItems.length === 0}
-        >
-          Procced to Checkout
-        </button>
+        {user?.id ? (
+          <button
+            className="border border-black rounded-xl font-bold bg-white py-3 w-full hover:bg-black hover:text-white"
+            onClick={() => router.push("/cart/checkout")}
+            disabled={cartItems.length === 0}
+          >
+            Procced to Checkout
+          </button>
+        ) : (
+          <Link
+            href={"/sign-in"}
+            className="text-center border border-black rounded-xl font-bold bg-white py-3 w-full hover:bg-black hover:text-white"
+          >
+            Sign in to checkout
+          </Link>
+        )}
+
         <p className="flex gap-2 justify-center">
           or{" "}
           <Link

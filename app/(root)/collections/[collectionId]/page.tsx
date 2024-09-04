@@ -1,6 +1,7 @@
 import ProductCard from "@/app/_components/ProductCard"
 import { Spotlight } from "@/app/_components/ui/Spotlight"
 import { getCollecionById } from "@/lib/actions/collectionsActions"
+import { ProductType } from "@/types"
 import Image from "next/image"
 
 const CollectionDetails = async ({
@@ -42,7 +43,7 @@ const CollectionDetails = async ({
         </h1>
         <div className="flex">
           {collection?.products.map((product) => (
-            <ProductCard product={product} key={product.id} />
+            <ProductCard product={product as ProductType} key={product.id} />
           ))}
         </div>
       </div>

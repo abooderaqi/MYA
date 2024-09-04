@@ -32,10 +32,6 @@ import {
 } from "@/app/_components/ui/popover"
 import { Check, ChevronsUpDown } from "lucide-react"
 import { cn } from "@/lib/utils"
-// import {
-//   postcodeValidator,
-//   postcodeValidatorExistsForCountry,
-// } from "postcode-validator"
 import { createOrder } from "@/lib/actions/orderAction"
 import toast from "react-hot-toast"
 import { useCart } from "@/hooks/useCart"
@@ -44,7 +40,7 @@ const phoneRegex = new RegExp(
   /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
 )
 
-export const checkoutFormSchema = z.object({
+const checkoutFormSchema = z.object({
   firstName: z.string().min(2).max(20).trim(),
   lastName: z.string().min(2).max(20).trim(),
   phoneNumber: z.string().regex(phoneRegex, "Invalid Number!"),
@@ -65,11 +61,17 @@ const Checkout = () => {
   const { user } = useUser()
   const firstName = user?.firstName as string
   const lastName = user?.lastName as string
+
   const form = useForm<z.infer<typeof checkoutFormSchema>>({
     resolver: zodResolver(checkoutFormSchema),
     defaultValues: {
       firstName: firstName,
       lastName: lastName,
+      phoneNumber: "",
+      address: "",
+      city: "",
+      country: "jo",
+      postCode: "",
     },
   })
   console.log(user)
@@ -218,14 +220,6 @@ const Checkout = () => {
                                       form.setValue("country", country.value)
                                     }}
                                   >
-                                    <Check
-                                      className={cn(
-                                        "mr-2 h-4 w-4",
-                                        country.value === field.value
-                                          ? "opacity-100"
-                                          : "opacity-0"
-                                      )}
-                                    />
                                     {country.label}
                                   </CommandItem>
                                 ))}

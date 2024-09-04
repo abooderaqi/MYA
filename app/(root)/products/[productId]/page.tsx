@@ -1,4 +1,3 @@
-import Gallery from "@/app/_components/Gallery"
 import ProductInfo from "@/app/_components/ProductInfo"
 import { getProductById } from "@/lib/actions/productActions"
 
@@ -9,11 +8,6 @@ const ProductDetails = async ({
 }) => {
   const product = await getProductById(params.productId)
 
-  return (
-    <div className="flex justify-center items-start gap-16 py-10 max-md:flex-col max-md:items-center">
-      <Gallery productMedia={product?.media as string[]} />
-      <ProductInfo productInfo={product} />
-    </div>
-  )
+  return <ProductInfo productInfo={product as any} />
 }
 export default ProductDetails

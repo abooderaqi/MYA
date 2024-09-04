@@ -10,14 +10,16 @@ const ProductList = async () => {
   const products = await getProducts()
   return (
     <Suspense fallback={<Spinner />}>
-      <div className="flex flex-col items-center py-8 px-5 gap-10">
-        <p className="text-font-bold text-3xl ">Products</p>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 className="text-center font-manrope font-bold text-3xl min-[400px]:text-4xl text-black mb-8 max-lg:text-center">
+          Products
+        </h2>
         {!products || products.length === 0 ? (
           <p className="font-bold">No products found</p>
         ) : (
           <div className="flex justify-center items-center gap-10 flex-wrap">
             {products?.map((product, index) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={product.id} product={product as any} />
             ))}
           </div>
         )}

@@ -1,6 +1,7 @@
 "use client"
 import { useGetUser } from "@/hooks/useGetUser"
 import { createWishlist } from "@/lib/actions/wishlistActions"
+import { UserType } from "@/types"
 import { useUser } from "@clerk/nextjs"
 import { Heart as HeartIcon } from "lucide-react"
 import { useRouter } from "next/navigation"
@@ -25,7 +26,7 @@ const Heart = ({ id }: { id: string }) => {
       } else {
         const updatedUser = await createWishlist(id)
         setIsLiked(updatedUser?.wishlist.includes(id))
-        setSignInUser(updatedUser)
+        setSignInUser(updatedUser as UserType)
         console.log("Updated user", updatedUser.wishlist, signedInUser)
       }
     } catch (err) {

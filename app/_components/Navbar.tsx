@@ -25,9 +25,6 @@ const Navbar = () => {
         <Link href={"/"} className="hover:opacity-75 cursor-pointer">
           Home
         </Link>
-        <Link href={"/collections"} className="hover:opacity-75 cursor-pointer">
-          Collections
-        </Link>
         <Link href={"/products"} className="hover:opacity-75 cursor-pointer">
           Products
         </Link>

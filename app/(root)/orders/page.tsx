@@ -12,15 +12,24 @@ const OrdersDetails = () => {
   return (
     <section className="py-24 relative">
       <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto">
-        <h2 className="font-manrope font-bold text-4xl leading-10 text-black text-center">
-          Payment Successful
-        </h2>
+        {orders?.length === 1 ? (
+          <h2 className="font-manrope font-bold text-4xl leading-10 text-black text-center">
+            Your Order
+          </h2>
+        ) : (
+          <h2 className="font-manrope font-bold text-4xl leading-10 text-black text-center">
+            Your Orders
+          </h2>
+        )}
         <p className="mt-4 font-normal text-lg leading-8 text-gray-500 mb-11 text-center">
-          Thanks for making a purchase you can check our order summary frm below
+          Thanks for chosing your order from our website
         </p>
         <div className="main-box rounded-xl pt-6 max-w-xl max-lg:mx-auto lg:max-w-full">
           {orders?.map((order) => (
-            <div key={order.id} className="mb-10  border-b border-black">
+            <div
+              key={order.id}
+              className="flex flex-col mb-10 border-b border-black"
+            >
               <div className="flex flex-col lg:flex-row lg:items-center  justify-between px-6 pb-6">
                 <div className="data">
                   <p className="font-semibold text-base leading-7 text-black">
@@ -68,7 +77,7 @@ const OrdersDetails = () => {
                               <p className="font-medium text-base leading-7 text-black ">
                                 Qty:{" "}
                                 <span className="text-gray-500">
-                                  {order.quantity[0]}
+                                  {order.quantity}
                                 </span>
                               </p>
                             </div>
@@ -112,6 +121,12 @@ const OrdersDetails = () => {
                   </div>
                 </div>
               ))}
+              <div className="flex justify-end">
+                <h1 className="text-md font-bold py-4">
+                  {" "}
+                  Sub total: ${order.totalAmount}
+                </h1>
+              </div>
             </div>
           ))}
 
@@ -132,12 +147,7 @@ const OrdersDetails = () => {
             <p className="font-semibold text-lg text-black py-6">
               Total Price:{" "}
               <span className="text-indigo-600">
-                {" "}
-                $
-                {orders?.reduce(
-                  (curr, order) => (curr += order.totalAmount),
-                  0
-                )}
+                ${orders?.reduce((curr, order) => curr + order.totalAmount, 0)}
               </span>
             </p>
           </div>
