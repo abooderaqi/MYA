@@ -15,7 +15,10 @@ const ProductList = async () => {
             <p className="w-fit my-4">{products.length} Items found</p>
             <div className="flex w-full h-full justify-center items-center gap-8 flex-wrap">
               {products?.map((product, index) => (
-                <ProductCard key={product.id + `${index}`} product={product as any} />
+                <ProductCard
+                  key={product.id + index}
+                  product={product as any}
+                />
               ))}
             </div>
           </div>
