@@ -18,25 +18,26 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
     <section className="py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="slider-box w-full h-full max-lg:mx-auto mx-0">
+          <div className="w-full h-full max-lg:mx-auto mx-0">
             <div className="nav-for-slider ">
-              <div className="swiper-wrapper">
-                <div className="swiper main-slide-carousel swiper-container relative mb-6">
-                  <div className="swiper-wrapper">
-                    <div className="swiper-slide">
-                      <div className="relative block">
+              <div className="h-auto">
+                <div className="relative mb-6">
+                  <div className="h-auto">
+                    <div className="py-2">
+                      <div className="mx-auto relative block">
                         <Image
                           src={mainImage}
-                          width={2000}
-                          height={1000}
-                          alt="product-media"
-                          className="max-lg:mx-auto object-cover rounded-2xl"
+                          width={350}
+                          height={350}
+                          alt={mainImage}
+                          quality={100}
+                          className=" object-cover rounded-2xl"
                         />
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="w-auto flex justify-start items-center gap-4 flex-wrap">
+                <div className="w-auto flex justify-start items-center gap-4 mb-4">
                   {productInfo.media.map((image: string, index: number) => (
                     <div className="" key={index}>
                       <Image
@@ -150,8 +151,9 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
                     <div>
                       <p
                         onClick={() => setSelectedColor(color)}
-                        className={`cursor-pointer border border-black whitespace-nowrap text-gray-900 text-sm leading-6 py-2.5 rounded-full px-5 text-center w-full font-semibold shadow-sm shadow-transparent transition-all duration-300 ${selectedColor === color ? "bg-black text-white" : ""
-                          }`}
+                        className={`cursor-pointer border border-black whitespace-nowrap text-gray-900 text-sm leading-6 py-2.5 rounded-full px-5 text-center w-full font-semibold shadow-sm shadow-transparent transition-all duration-300 ${
+                          selectedColor === color ? "bg-black text-white" : ""
+                        }`}
                       >
                         {color}
                       </p>
@@ -165,8 +167,9 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
                   <button
                     key={index}
                     onClick={() => setSelectedSize(size)}
-                    className={`border border-black whitespace-nowrap text-gray-900 text-sm leading-6 py-2.5 rounded-full px-5 text-center w-full font-semibold shadow-sm shadow-transparent transition-all duration-300 ${selectedSize === size ? "bg-black text-white" : ""
-                      }`}
+                    className={`border border-black whitespace-nowrap text-gray-900 text-sm leading-6 py-2.5 rounded-full px-5 text-center w-full font-semibold shadow-sm shadow-transparent transition-all duration-300 ${
+                      selectedSize === size ? "bg-black text-white" : ""
+                    }`}
                   >
                     {size}
                   </button>

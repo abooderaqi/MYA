@@ -83,7 +83,7 @@ const Checkout = () => {
       const order = await createOrder(values, cartItems)
       toast.success("Order created successfully")
       console.log(order)
-      router.push("/payment-success")
+      router.push("/orders")
       return order
     } catch (error) {
       toast.error(error as string)

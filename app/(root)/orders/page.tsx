@@ -4,9 +4,15 @@ import { useOrder } from "@/hooks/useOrder"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { ArrowLeft } from "lucide-react"
+import { useCart } from "@/hooks/useCart"
+import { useRef } from "react"
 const OrdersDetails = () => {
   const router = useRouter()
   const { orders } = useOrder()
+  const { cartItems, clearCart } = useCart()
+  const paymentSuccess = useRef({ isPaid: "success" })
+  if (paymentSuccess.current.isPaid === "success" && cartItems.length > 0)
+    clearCart()
   console.log(orders)
   return (
     <section className="py-24 relative">
@@ -139,7 +145,7 @@ const OrdersDetails = () => {
                 className="flex outline-0 py-6 sm:pr-6  sm:border-r border-gray-200 whitespace-nowrap gap-2 items-center justify-center font-semibold group text-lg text-black bg-white transition-all duration-500 hover:text-indigo-600"
               >
                 <ArrowLeft />
-                back
+                Back to store
               </button>
               {/* <p className="font-medium text-lg text-gray-900 pl-6 py-3 max-lg:text-center">
                 Paid using Credit Card{" "}

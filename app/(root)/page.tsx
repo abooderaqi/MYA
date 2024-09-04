@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Collections from "@/app/_components/Collections"
 import ProductList from "@/app/_components/ProdoctList"
+import NewArrivalProduct from "../_components/NewArrivalProduct"
 
 export default function Home() {
   return (
@@ -10,10 +11,10 @@ export default function Home() {
         alt="banner"
         width={2000}
         height={1000}
-        className="w-screen"
+        className="w-screen object-cover"
       />
       <Collections />
-      <ProductList />
+      <NewArrivalProduct />
     </div>
   )
 }

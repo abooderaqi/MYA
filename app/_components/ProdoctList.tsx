@@ -12,6 +12,7 @@ const ProductList = async () => {
           <p className="font-bold">No products found</p>
         ) : (
           <div className="w-full flex flex-col items-center p-4">
+            <p className="text-3xl font-bold">Products</p>
             <p className="w-fit my-4">{products.length} Items found</p>
             <div className="flex w-full h-full justify-center items-center gap-8 flex-wrap">
               {products?.map((product, index) => (

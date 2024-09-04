@@ -40,6 +40,7 @@
     "react-pick-color": "^2.0.0",
     "sharp": "^0.33.5",
     "stripe": "^16.8.0",
+    "tailwind-gradient-mask-image": "^1.2.0",
     "tailwind-merge": "^2.5.2",
     "tailwind-scrollbar-hide": "^1.1.7",
     "tailwindcss-animate": "^1.0.7",

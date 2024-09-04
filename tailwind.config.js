@@ -91,5 +91,9 @@ module.exports = withMT({
     },
   },
 
-  plugins: [require("tailwindcss-animate"), nextui()],
+  plugins: [
+    require("tailwind-gradient-mask-image"),
+    require("tailwindcss-animate"),
+    nextui(),
+  ],
 })

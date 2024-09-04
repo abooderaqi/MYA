@@ -1,7 +1,6 @@
 "use client"
 
 import { useCart } from "@/hooks/useCart"
-import { clear } from "console"
 import Link from "next/link"
 import { useRef } from "react"
 
