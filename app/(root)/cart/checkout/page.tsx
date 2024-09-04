@@ -76,6 +76,7 @@ const Checkout = () => {
   })
   console.log(user)
   const { cartItems } = useCart()
+  console.log(cartItems)
   const handleSubmit = async (values: z.infer<typeof checkoutFormSchema>) => {
     try {
       console.log(cartItems, values, user?.id)

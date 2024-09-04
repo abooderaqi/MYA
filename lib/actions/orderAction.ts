@@ -46,6 +46,7 @@ export const createOrder = async (
     }
 
     const quantity = items.map((item) => item.quantity)
+    console.log(quantity)
     const {
       city,
       country,
@@ -84,7 +85,7 @@ export const createOrder = async (
           0
         ),
         shippingAddress: shippingAddress,
-        quantity: quantity[0],
+        quantity: quantity,
         createdAt: new Date(Date.now()),
         updatedAt: new Date(Date.now()),
       },

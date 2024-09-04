@@ -47,7 +47,7 @@ const OrdersDetails = () => {
                   </p>
                 </div>
               </div>
-              {order.products.map((product) => (
+              {order.products.map((product, index) => (
                 <div className="w-full px-3 min-[400px]:px-6" key={product.id}>
                   <div className="flex flex-col lg:flex-row items-center py-6 border-b border-gray-200 gap-6 w-full">
                     <div className=" img-box max-lg:w-full">
@@ -77,7 +77,7 @@ const OrdersDetails = () => {
                               <p className="font-medium text-base leading-7 text-black ">
                                 Qty:{" "}
                                 <span className="text-gray-500">
-                                  {order.quantity}
+                                  {order.quantity[index]}
                                 </span>
                               </p>
                             </div>

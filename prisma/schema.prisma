@@ -15,7 +15,7 @@ model Collection {
   image       String    @unique
   updatedAt   DateTime
   createdAt   DateTime  @default(now())
-  products     Product[]
+  products    Product[] @relation("CollectionToProduct")
 }
 
 model Product {
@@ -31,33 +31,32 @@ model Product {
   tags        String[]
   title       String
   sizes       String[]
-  collection  Collection[]
-  orders  Order[]
+  collection  Collection[] @relation("CollectionToProduct")
+  orders      Order[]      @relation("OrderToProduct")
 }
 
 model User {
-  clerkId   String @unique
-  wishlist  String[] @default([])
-  orders    Order[] 
-  role       USER_ROLE   @default(USER)
+  clerkId   String    @unique
+  wishlist  String[]  @default([])
   createdAt DateTime  @default(now())
   updatedAt DateTime
+  role      USER_ROLE @default(USER)
+  orders    Order[]
+}
+
+model Order {
+  id              String    @id @default(uuid())
+  totalAmount     Int
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime
+  shippingAddress Json
+  userId          String
+  quantity        Int[]
+  user            User      @relation(fields: [userId], references: [clerkId])
+  products        Product[] @relation("OrderToProduct")
 }
 
 enum USER_ROLE {
   ADMIN
   USER
 }
-
-model Order {
-  id String @id @default(uuid())
-  products Product[]
-  shippingAddress Json
-  totalAmount Int
-  userId String
-  user User @relation(fields: [userId], references: [clerkId])
-  quantity Int
-  createdAt DateTime  @default(now())
-  updatedAt DateTime
-}
-
