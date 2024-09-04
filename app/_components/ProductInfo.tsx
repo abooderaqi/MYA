@@ -1,10 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Heart from "./Heart"
-import { MinusCircle, PlusCircle } from "lucide-react"
 import { useCart } from "@/hooks/useCart"
-import FeaturesContainer from "./ui/Features"
 import Image from "next/image"
 import { ProductType } from "@/types"
 
@@ -86,7 +83,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
                       className="stroke-indigo-600 transition-all duration-500 group-hover:stroke-indigo-700"
                       d="M21.4709 31.3196L30.0282 39.7501L38.96 30.9506M30.0035 22.0789C32.4787 19.6404 36.5008 19.6404 38.976 22.0789C41.4512 24.5254 41.4512 28.4799 38.9842 30.9265M29.9956 22.0789C27.5205 19.6404 23.4983 19.6404 21.0231 22.0789C18.548 24.5174 18.548 28.4799 21.0231 30.9184M21.0231 30.9184L21.0441 30.939M21.0231 30.9184L21.4628 31.3115"
                       stroke=""
-                      stroke-width="1.6"
+                      strokeWidth="1.6"
                       stroke-miterlimit="10"
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -194,21 +191,21 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
                       <path
                         d="M16.5 11H5.5"
                         stroke=""
-                        stroke-width="1.6"
+                        strokeWidth="1.6"
                         stroke-linecap="round"
                       />
                       <path
                         d="M16.5 11H5.5"
                         stroke=""
                         stroke-opacity="0.2"
-                        stroke-width="1.6"
+                        strokeWidth="1.6"
                         stroke-linecap="round"
                       />
                       <path
                         d="M16.5 11H5.5"
                         stroke=""
                         stroke-opacity="0.2"
-                        stroke-width="1.6"
+                        strokeWidth="1.6"
                         stroke-linecap="round"
                       />
                     </svg>
@@ -234,21 +231,21 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
                       <path
                         d="M11 5.5V16.5M16.5 11H5.5"
                         stroke="#9CA3AF"
-                        stroke-width="1.6"
+                        strokeWidth="1.6"
                         stroke-linecap="round"
                       />
                       <path
                         d="M11 5.5V16.5M16.5 11H5.5"
                         stroke="black"
                         stroke-opacity="0.2"
-                        stroke-width="1.6"
+                        strokeWidth="1.6"
                         stroke-linecap="round"
                       />
                       <path
                         d="M11 5.5V16.5M16.5 11H5.5"
                         stroke="black"
                         stroke-opacity="0.2"
-                        stroke-width="1.6"
+                        strokeWidth="1.6"
                         stroke-linecap="round"
                       />
                     </svg>
@@ -276,7 +273,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
                     <path
                       d="M10.7394 17.875C10.7394 18.6344 10.1062 19.25 9.32511 19.25C8.54402 19.25 7.91083 18.6344 7.91083 17.875M16.3965 17.875C16.3965 18.6344 15.7633 19.25 14.9823 19.25C14.2012 19.25 13.568 18.6344 13.568 17.875M4.1394 5.5L5.46568 12.5908C5.73339 14.0221 5.86724 14.7377 6.37649 15.1605C6.88573 15.5833 7.61377 15.5833 9.06984 15.5833H15.2379C16.6941 15.5833 17.4222 15.5833 17.9314 15.1605C18.4407 14.7376 18.5745 14.0219 18.8421 12.5906L19.3564 9.84059C19.7324 7.82973 19.9203 6.8243 19.3705 6.16215C18.8207 5.5 17.7979 5.5 15.7522 5.5H4.1394ZM4.1394 5.5L3.66797 2.75"
                       stroke=""
-                      stroke-width="1.6"
+                      strokeWidth="1.6"
                       stroke-linecap="round"
                     />
                   </svg>
