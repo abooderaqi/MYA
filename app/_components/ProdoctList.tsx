@@ -1,26 +1,23 @@
 import { Suspense } from "react"
 import Spinner from "./ui/Spinner"
-import { useGetProducts } from "@/hooks/useGetProducts"
 import ProductCard from "./ProductCard"
 import { getProducts } from "@/lib/actions/productActions"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 
 const ProductList = async () => {
   const products = await getProducts()
   return (
     <Suspense fallback={<Spinner />}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-center font-manrope font-bold text-3xl min-[400px]:text-4xl text-black mb-8 max-lg:text-center">
-          Products
-        </h2>
+      <div className="container">
         {!products || products.length === 0 ? (
           <p className="font-bold">No products found</p>
         ) : (
-          <div className="flex justify-center items-center gap-10 flex-wrap">
-            {products?.map((product, index) => (
-              <ProductCard key={product.id} product={product as any} />
-            ))}
+          <div className="w-full flex flex-col items-center p-4">
+            <p className="w-fit my-4">{products.length} Items found</p>
+            <div className="flex w-full h-full justify-center items-center gap-8 flex-wrap">
+              {products?.map((product, index) => (
+                <ProductCard key={product.id + `${index}`} product={product as any} />
+              ))}
+            </div>
           </div>
         )}
       </div>

@@ -150,9 +150,8 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
                     <div>
                       <p
                         onClick={() => setSelectedColor(color)}
-                        className={`cursor-pointer border border-black whitespace-nowrap text-gray-900 text-sm leading-6 py-2.5 rounded-full px-5 text-center w-full font-semibold shadow-sm shadow-transparent transition-all duration-300 ${
-                          selectedColor === color ? "bg-black text-white" : ""
-                        }`}
+                        className={`cursor-pointer border border-black whitespace-nowrap text-gray-900 text-sm leading-6 py-2.5 rounded-full px-5 text-center w-full font-semibold shadow-sm shadow-transparent transition-all duration-300 ${selectedColor === color ? "bg-black text-white" : ""
+                          }`}
                       >
                         {color}
                       </p>
@@ -166,9 +165,8 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
                   <button
                     key={index}
                     onClick={() => setSelectedSize(size)}
-                    className={`border border-black whitespace-nowrap text-gray-900 text-sm leading-6 py-2.5 rounded-full px-5 text-center w-full font-semibold shadow-sm shadow-transparent transition-all duration-300 ${
-                      selectedSize === size ? "bg-black text-white" : ""
-                    }`}
+                    className={`border border-black whitespace-nowrap text-gray-900 text-sm leading-6 py-2.5 rounded-full px-5 text-center w-full font-semibold shadow-sm shadow-transparent transition-all duration-300 ${selectedSize === size ? "bg-black text-white" : ""
+                      }`}
                   >
                     {size}
                   </button>
