@@ -2,7 +2,6 @@
 
 import { useOrder } from "@/hooks/useOrder"
 import Image from "next/image"
-import Product from "../products/page"
 import { useRouter } from "next/navigation"
 import { ArrowLeft } from "lucide-react"
 const OrdersDetails = () => {
@@ -48,7 +47,10 @@ const OrdersDetails = () => {
                 </div>
               </div>
               {order.products.map((product, index) => (
-                <div className="w-full px-3 min-[400px]:px-6" key={product.id}>
+                <div
+                  className="w-full px-3 min-[400px]:px-6"
+                  key={product.id + `${index}`}
+                >
                   <div className="flex flex-col lg:flex-row items-center py-6 border-b border-gray-200 gap-6 w-full">
                     <div className=" img-box max-lg:w-full">
                       <Image

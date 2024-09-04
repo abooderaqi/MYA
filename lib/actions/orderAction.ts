@@ -81,7 +81,7 @@ export const createOrder = async (
         },
         products: { connect: items.map((id) => ({ id: id.item.id })) },
         totalAmount: items.reduce(
-          (acc, item) => acc + item.item.price * item.quantity,
+          (acc, item) => acc + (item.item.price * item.quantity),
           0
         ),
         shippingAddress: shippingAddress,
