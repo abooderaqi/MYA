@@ -62,15 +62,4 @@ enum USER_ROLE {
 }
 
 
-model Order {
-  id String @id @default(uuid())
-  products Product[]
-  shippingAddress Json
-  totalAmount Int
-  userId String
-  user User @relation(fields: [userId], references: [clerkId])
-  quantity Int[]
-  createdAt DateTime  @default(now())
-  updatedAt DateTime
-}
 
