@@ -6,6 +6,7 @@ import "@/app/_styles/globals.css"
 import Navbar from "../_components/Navbar"
 import QueryProvider from "@/lib/providers/queryProvider"
 import ToasterProvider from "@/lib/providers/ToasterProvider"
+import Footer from "../_components/Footer"
 
 const inter = Lato({ subsets: ["latin"], weight: "400" })
 
@@ -27,6 +28,7 @@ export default function RootLayout({
             <ToasterProvider />
             <Navbar />
             {children}
+            <Footer />
           </QueryProvider>
         </body>
       </ClerkProvider>

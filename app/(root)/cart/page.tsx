@@ -33,7 +33,7 @@ const Cart = () => {
           <div>
             {cartItems.map((cartItem) => (
               <div
-                className="max-sm:flex-col max-sm:items-start max-sm:gap-3 w-full flex hover:bg-gray-300 px-6 py-5 justify-between  items-center"
+                className="max-sm:flex-col max-sm:items-start max-sm:gap-3 w-full flex  px-6 py-5 justify-between  items-center"
                 key={cartItem.item.id}
               >
                 <div className="flex items-center">

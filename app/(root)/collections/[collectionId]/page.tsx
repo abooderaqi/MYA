@@ -1,5 +1,4 @@
 import ProductCard from "@/app/_components/ProductCard"
-import { Spotlight } from "@/app/_components/ui/Spotlight"
 import { getCollecionById } from "@/lib/actions/collectionsActions"
 import { ProductType } from "@/types"
 import Image from "next/image"
@@ -13,7 +12,7 @@ const CollectionDetails = async ({
 
   return (
     <div className="flex justify-center items-center flex-col gap-6 overflow-hidden">
-      <section className="w-full">
+      <section className="w-full ">
         <div
           className={`relative w-full min-h-[520px] flex flex-col justify-center items-center`}
         >
@@ -22,6 +21,7 @@ const CollectionDetails = async ({
             alt={collection?.title as string}
             fill
             className="object-cover"
+            sizes="100%"
             quality={100}
           />
           <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-black bg-fixed opacity-50"></div>

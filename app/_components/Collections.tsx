@@ -10,28 +10,30 @@ const Collections = async () => {
 
   return (
     <Suspense fallback={<Spinner />}>
-      <div className="flex flex-col items-center py-8 px-5 gap-10">
-        <p className="font-bold text-3xl ">Collections</p>
+      <div className="px-4 overflow-x-scroll scrollbar-hidden">
         {!collections || collections.length === 0 ? (
           <p className="font-bold">No collection found</p>
         ) : (
-          <div className="flex flex-wrap w-full h-full gap-4 justify-center items-center">
+          <div className="flex gap-4 md:gap-8">
             {collections?.map((collection) => (
-              <Link href={`/collections/${collection.id}`} key={collection.id}>
-                <div className="relative h-[200px] w-[350px] rounded-xl overflow-hidden hover:scale-105">
+              <Link
+                href={`/collections/${collection.id}`}
+                key={collection.id}
+                className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 xl:w-1/6"
+              >
+                <div className="relative bg-slate-100 w-full h-96">
                   <Image
                     src={collection?.image}
                     alt={collection.title}
-                    layout="fill"
+                    fill
+                    sizes="20vw"
                     className="object-cover"
+                    quality={100}
                   />
-
-                  <div className="absolute bottom-0 left-0 w-full h-full bg-black opacity-50 transition-opacity duration-300 ease-in-out">
-                    <p className="text-white text-3xl font-bold p-4 text-center">
-                      {collection.title}
-                    </p>
-                  </div>
                 </div>
+                <h1 className="mt-8 font-light text-xl tracking-wide">
+                  {collection?.title}
+                </h1>
               </Link>
             ))}
           </div>

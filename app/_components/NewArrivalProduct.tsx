@@ -5,24 +5,21 @@ import { CollectionType, ProductType } from "@/types"
 import { useGetCollection } from "../../hooks/useGetCollection"
 const NewArrivalProduct = () => {
   const { collections } = useGetCollection()
-  console.log(collections)
-  const newArrivalProduct = collections?.filter(
-    (collection: CollectionType) => collection.title === "NewArrival"
-  )
-  console.log(newArrivalProduct)
-  return (
-    <div>
-      <h1>New Arrival Products {newArrivalProduct?.length}</h1>
 
-      {newArrivalProduct?.map((product: ProductType, index) => (
-        <>
-          {console.log(product)}
-          <ProductCard
-            key={product.id + index}
-            product={product as ProductType}
-          />
-        </>
-      ))}
+  let newArrivalCollection = collections?.filter(
+    (collection: CollectionType) => collection.title === "New Arrival"
+  )
+  let newArrivalProduct = newArrivalCollection?.map(
+    (product) => product.products
+  )
+
+  return (
+    <div className="w-full flex flex-col items-center gap-4 p-4">
+      <div className="flex w-full h-full justify-center items-center gap-8 flex-wrap">
+        {newArrivalProduct?.at(0)?.map((product: ProductType) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   )
 }
