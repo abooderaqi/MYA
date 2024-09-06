@@ -2,15 +2,15 @@ import Image from "next/image"
 import Link from "next/link"
 import { Suspense } from "react"
 
-import Spinner from "./ui/Spinner"
 import { getCollections } from "@/lib/actions/collectionsActions"
+import Skeleton from "./ui/Skeleton"
 
 const Collections = async () => {
   const collections = await getCollections()
 
   return (
-    <Suspense fallback={<Spinner />}>
-      <div className="px-4 overflow-x-scroll scrollbar-hidden">
+    <Suspense fallback={<Skeleton />}>
+      <div className="px-4 overflow-x-scroll scrollbar-hide">
         {!collections || collections.length === 0 ? (
           <p className="font-bold">No collection found</p>
         ) : (

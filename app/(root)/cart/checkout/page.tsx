@@ -92,7 +92,7 @@ const Checkout = () => {
 
   return (
     <div className="h-full w-[100vw] my-12">
-      <div className="container flex justify-center items-center w-full h-full">
+      <div className="container flex justify-center items-center w-full h-full max-sm:w-fit">
         <div className="form w-[30rem] h-full">
           <Form {...form}>
             <form
@@ -103,10 +103,8 @@ const Checkout = () => {
                 control={form.control}
                 name="firstName"
                 render={({ field }) => (
-                  <FormItem className="relative">
-                    <FormLabel className="absolute -left-28 top-1/2 -translate-y-1/2">
-                      First Name
-                    </FormLabel>
+                  <FormItem className="flex justify-center items-center">
+                    <FormLabel className="w-1/4">First Name</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -118,10 +116,8 @@ const Checkout = () => {
                 control={form.control}
                 name="lastName"
                 render={({ field }) => (
-                  <FormItem className="relative">
-                    <FormLabel className="absolute -left-28 top-1/2 -translate-y-1/2">
-                      Last Name
-                    </FormLabel>
+                  <FormItem className="flex justify-center items-center">
+                    <FormLabel className="w-1/4">Last Name</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -133,10 +129,8 @@ const Checkout = () => {
                 control={form.control}
                 name="phoneNumber"
                 render={({ field }) => (
-                  <FormItem className="relative">
-                    <FormLabel className="absolute -left-28 top-1/2 -translate-y-1/2">
-                      Phone Number
-                    </FormLabel>
+                  <FormItem className="flex justify-center items-center">
+                    <FormLabel className="w-1/4">Phone Number</FormLabel>
                     <FormControl>
                       <PhoneInput country={"jo"} {...field} />
                     </FormControl>
@@ -149,10 +143,8 @@ const Checkout = () => {
                 control={form.control}
                 name="address"
                 render={({ field }) => (
-                  <FormItem className="relative">
-                    <FormLabel className="absolute -left-28 top-1/2 -translate-y-1/2">
-                      Address
-                    </FormLabel>
+                  <FormItem className="flex justify-center items-center">
+                    <FormLabel className="w-1/4">Address</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -165,10 +157,8 @@ const Checkout = () => {
                 control={form.control}
                 name="city"
                 render={({ field }) => (
-                  <FormItem className="relative">
-                    <FormLabel className="absolute -left-28 top-1/2 -translate-y-1/2">
-                      City
-                    </FormLabel>
+                  <FormItem className="flex justify-center items-center">
+                    <FormLabel className="w-1/4">City</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -181,10 +171,8 @@ const Checkout = () => {
                 control={form.control}
                 name="country"
                 render={({ field }) => (
-                  <FormItem className="relative">
-                    <FormLabel className="absolute -left-28 top-1/2 -translate-y-1/2">
-                      Country
-                    </FormLabel>
+                  <FormItem className="flex justify-start items-center ">
+                    <FormLabel className="w-1/5">Country</FormLabel>
                     <FormControl>
                       <Popover>
                         <PopoverTrigger asChild>
@@ -239,10 +227,8 @@ const Checkout = () => {
                 control={form.control}
                 name="postCode"
                 render={({ field }) => (
-                  <FormItem className="relative">
-                    <FormLabel className="absolute -left-28 top-1/2 -translate-y-1/2">
-                      Post Code
-                    </FormLabel>
+                  <FormItem className="flex justify-center items-center">
+                    <FormLabel className="w-1/4">Post Code</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -254,7 +240,7 @@ const Checkout = () => {
                 <Button
                   type="submit"
                   variant={"default"}
-                  className="bg-blue-500 text-white w-full rounded-xl"
+                  className="bg-mya text-white font-bold w-full rounded-xl"
                 >
                   DELIVER TO THIS ADDRESS
                 </Button>

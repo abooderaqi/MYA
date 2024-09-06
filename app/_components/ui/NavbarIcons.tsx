@@ -30,9 +30,9 @@ const NavbarIcons = () => {
           <Link href="/orders" className="hover:text-gray-700 font-bold">
             Orders
           </Link>
-          <Link href="/wishlist" className="hover:text-gray-700 font-bold">
+          {/* <Link href="/wishlist" className="hover:text-gray-700 font-bold">
             <Heart size={22} />
-          </Link>
+          </Link> */}
         </>
       )}
       {user ? (

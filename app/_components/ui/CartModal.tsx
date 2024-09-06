@@ -13,11 +13,11 @@ const CartModal = () => {
       {cartItems.length === 0 ? (
         <div>Cart is Empty</div>
       ) : (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 overflow-y-scroll scrollbar-hide">
+          <h2 className="text-xl">Shopping Cart</h2>
           {cartItems.map((cartItem) => (
             <>
-              <h2 className="text-xl">Shopping Cart</h2>
-              <div key={cartItem.item?.id} className="flex gap-4">
+              <div key={cartItem.item?.id} className="flex gap-4 ">
                 <Image
                   src={cartItem.item?.media[0]}
                   width={72}
@@ -50,7 +50,7 @@ const CartModal = () => {
               <div>
                 <div className="flex items-center justify-between font-semibold">
                   <span>Subtotal</span>
-                  <span>{cartItem.quantity * cartItem.item.price}</span>
+                  <span>${cartItem.quantity * cartItem.item.price}</span>
                 </div>
               </div>
             </>

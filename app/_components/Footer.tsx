@@ -10,14 +10,11 @@ const Footer = () => {
         {/* LEFT */}
         <div className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8">
           <Link href="/">
-            <div className="text-2xl tracking-wide">LAMA</div>
+            <div className="text-2xl tracking-wide">MYA</div>
           </Link>
-          <p>
-            3252 Winding Way, Central Plaza, Willowbrook, CA 90210, United
-            States
-          </p>
-          <span className="font-semibold">hello@lama.dev</span>
-          <span className="font-semibold">+1 234 567 890</span>
+          <p>Jordan</p>
+          <span className="font-semibold">hello@MYA.dev</span>
+          <span className="font-semibold">+962 792937381</span>
           <div className="flex gap-6">
             <Link
               href={"https://www.instagram.com/"}
@@ -112,7 +109,7 @@ const Footer = () => {
           </div>
           <div className="">
             <span className="text-gray-500 mr-4">Currency</span>
-            <span className="font-medium">$ JD</span>
+            <span className="font-medium">JD</span>
           </div>
         </div>
       </div>

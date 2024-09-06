@@ -21,7 +21,9 @@ const Slider = () => {
             key={collection.id}
           >
             <div className="h-1/2 xl:w-1/2 xl:h-full flex flex-col items-center justify-center gap-8 2xl:gap-12 text-center">
-              <h1 className="lg:text-4xl 2xl:text-5xl ">{collection?.title}</h1>
+              <h1 className="lg:text-4xl 2xl:text-5xl text-4xl ">
+                {collection?.title}
+              </h1>
               <Link href={`/collections/${collection?.id}`}>
                 <button className="rounded-xl bg-black text-white py-3 px-4 ">
                   Shop Now

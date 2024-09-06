@@ -29,11 +29,11 @@ const OrdersDetails = () => {
         <p className="mt-4 font-normal text-lg leading-8 text-gray-500 mb-11 text-center">
           Thanks for chosing your order from our website
         </p>
-        <div className="main-box rounded-xl pt-6 max-w-xl max-lg:mx-auto lg:max-w-full">
+        <div className=" rounded-xl pt-6 max-lg:mx-auto lg:max-w-full">
           {orders?.map((order) => (
             <div
               key={order.id}
-              className="flex flex-col mb-10 border-b border-black"
+              className="flex flex-col mb-10 border-b md:w-full border-black"
             >
               <div className="flex flex-col lg:flex-row lg:items-center  justify-between px-6 pb-6">
                 <div className="data">
@@ -58,13 +58,13 @@ const OrdersDetails = () => {
                   key={product.id + `${index}`}
                 >
                   <div className="flex flex-col lg:flex-row items-center py-6 border-b border-gray-200 gap-6 w-full">
-                    <div className=" img-box max-lg:w-full">
+                    <div className="relative aspect-square h-[150px] w-full text-left lg:max-w-[140px] max-lg:w-full">
                       <Image
                         src={product.media[0]}
-                        width={140}
-                        height={140}
+                        fill
+                        sizes="25vh"
                         alt="Premium Watch image"
-                        className="aspect-square w-full lg:max-w-[140px] rounded-xl"
+                        className="object-contain rounded-xl"
                       />
                     </div>
                     <div className="flex flex-row items-center w-full ">
@@ -138,7 +138,7 @@ const OrdersDetails = () => {
             </div>
           ))}
 
-          <div className="w-full border-t border-gray-200 px-6 flex flex-col lg:flex-row items-center justify-between ">
+          <div className="w-full border-t border-gray-200 px-6 flex lg:flex-row  items-center justify-between ">
             <div className="flex flex-col sm:flex-row items-center max-lg:border-b border-gray-200">
               <button
                 onClick={() => router.push("/")}

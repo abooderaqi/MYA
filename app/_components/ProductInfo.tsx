@@ -19,18 +19,18 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="w-full h-full max-lg:mx-auto mx-0">
-            <div className="nav-for-slider ">
+            <div className="">
               <div className="h-auto">
                 <div className="relative mb-6">
                   <div className="h-auto">
                     <div className="py-2">
-                      <div className="mx-auto relative block">
+                      <div className="h-[500px] relative">
                         <Image
                           src={mainImage}
-                          width={350}
-                          height={350}
                           alt={mainImage}
                           quality={100}
+                          fill
+                          sizes="50vw"
                           className=" object-cover rounded-2xl"
                         />
                       </div>
@@ -39,13 +39,16 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
                 </div>
                 <div className="w-auto flex justify-start items-center gap-4 mb-4">
                   {productInfo.media.map((image: string, index: number) => (
-                    <div className="" key={index}>
+                    <div
+                      className="w-1/4 h-32 relative gap-4 mt-8 cursor-pointer"
+                      key={index}
+                    >
                       <Image
                         src={image}
                         alt={productInfo.title}
-                        width={150}
-                        height={150}
-                        className="cursor-pointer rounded-xl transition-all duration-500 object-cover "
+                        fill
+                        sizes="30vw"
+                        className="rounded-xl object-cover"
                         onClick={() => setMainImage(image)}
                       />
                     </div>
@@ -65,7 +68,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
                     {productInfo.category}
                   </p>
                 </div>
-                <button className="group transition-all duration-500 p-0.5">
+                {/* <button className="group transition-all duration-500 p-0.5">
                   <svg
                     width="60"
                     height="60"
@@ -90,7 +93,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </button>
+                </button> */}
               </div>
 
               <div className="flex min-[400px]:flex-row min-[400px]:items-center mb-8 gap-y-3">
@@ -151,12 +154,13 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
                     <div>
                       <p
                         onClick={() => setSelectedColor(color)}
-                        className={`cursor-pointer border border-black whitespace-nowrap text-gray-900 text-sm leading-6 py-2.5 rounded-full px-5 text-center w-full font-semibold shadow-sm shadow-transparent transition-all duration-300 ${
-                          selectedColor === color ? "bg-black text-white" : ""
+                        className={`cursor-pointer   whitespace-nowrap  text-sm leading-6 py-2.5 rounded-full px-5 text-center w-full font-semibold shadow-sm shadow-transparent transition-all duration-300 ${
+                          selectedColor === color && selectedColor
+                            ? `bg-${color}-500 text-white border border-black`
+                            : ""
                         }`}
-                      >
-                        {color}
-                      </p>
+                        style={{ backgroundColor: color }}
+                      ></p>
                     </div>
                   </div>
                 ))}
@@ -253,7 +257,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
                   </button>
                 </div>
                 <button
-                  className="group py-3 px-5 rounded-full bg-indigo-50 text-indigo-600 font-semibold text-lg w-full flex items-center justify-center gap-2 shadow-sm shadow-transparent transition-all duration-500 hover:shadow-indigo-300 hover:bg-indigo-100"
+                  className="group py-3 px-5 rounded-full bg-indigo-50 text-mya font-semibold text-lg w-full flex items-center justify-center gap-2 shadow-sm shadow-transparent transition-all duration-500 hover:text-white hover:bg-mya"
                   onClick={() =>
                     addItem({
                       item: productInfo,
@@ -264,7 +268,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
                   }
                 >
                   <svg
-                    className="stroke-indigo-600 transition-all duration-500 group-hover:stroke-indigo-600"
+                    className="stroke-mya transition-all duration-500 group-hover:stroke-white"
                     width="22"
                     height="22"
                     viewBox="0 0 22 22"
