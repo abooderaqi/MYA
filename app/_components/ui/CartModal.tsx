@@ -4,7 +4,7 @@ import { Trash } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
-const CartModal = () => {
+const CartModal = ({ setIsOpen }: { setIsOpen: (open: boolean) => void }) => {
   const { cartItems, removeItem } = useCart()
   let items = cartItems.map((item) => item.item)
   console.log(items.map((item) => item))
@@ -59,6 +59,7 @@ const CartModal = () => {
             <Link
               href={"/cart"}
               className="rounded-xl py-3 px-4 ring-1 ring-gray-300 w-full text-center font-semibold hover:bg-mya hover:text-white"
+              onClick={() => setIsOpen(false)}
             >
               View Cart
             </Link>

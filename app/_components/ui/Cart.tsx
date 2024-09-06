@@ -17,7 +17,7 @@ const Cart = () => {
       <div className="absolute text-white text-sm rounded-full flex items-center justify-center -top-4 -right-4 w-6 h-6 bg-mya  font-bold">
         {cartItems.length}
       </div>
-      {isCartOpen && <CartModal />}
+      {isCartOpen && <CartModal setIsOpen={setIsCartOpen} />}
     </div>
   )
 }
