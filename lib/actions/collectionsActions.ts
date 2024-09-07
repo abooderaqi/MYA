@@ -24,3 +24,5 @@ export const getCollecionById = async (id: string) => {
     throw err
   }
 }
+
+
