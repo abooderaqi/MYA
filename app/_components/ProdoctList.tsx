@@ -1,10 +1,23 @@
 import { Suspense } from "react"
 import Spinner from "./ui/Spinner"
 import ProductCard from "./ProductCard"
-import { getProducts } from "@/lib/actions/productActions"
+import { getFilteredProducts, getProducts } from "@/lib/actions/productActions"
+import { ColorType, ProductType, SizeType, SortType } from "@/types"
 
-const ProductList = async () => {
+const ProductList = async ({
+  sort,
+  colors,
+}: {
+  sort: string[]
+  colors: string[]
+}) => {
   const products = await getProducts()
+  const filterFun = await getFilteredProducts({
+    sort: { label: sort.at(0) as string, orderBy: sort.at(1) as string },
+    color: colors,
+    // size: ["md"],
+  })
+
   return (
     <Suspense fallback={<Spinner />}>
       <div className="container">
@@ -15,10 +28,10 @@ const ProductList = async () => {
             <p className="text-3xl font-bold">Products</p>
             <p className="w-fit my-4">{products.length} Items found</p>
             <div className="flex w-full h-full justify-center items-center gap-8 flex-wrap">
-              {products?.map((product, index) => (
+              {filterFun?.map((product, index) => (
                 <ProductCard
                   key={product.id + index}
-                  product={product as any}
+                  product={product as ProductType}
                 />
               ))}
             </div>

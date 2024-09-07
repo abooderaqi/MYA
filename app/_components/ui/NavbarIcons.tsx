@@ -2,11 +2,10 @@
 
 import { useCart } from "@/hooks/useCart"
 import { UserButton, useUser } from "@clerk/nextjs"
-import { Heart, ShoppingCart, User } from "lucide-react"
+import { ShoppingCart, User } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import CartModal from "./CartModal"
-import { CartItem } from "@/types"
 
 const NavbarIcons = () => {
   const [isCartOpen, setIsCartOpen] = useState(false)

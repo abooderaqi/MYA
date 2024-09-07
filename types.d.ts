@@ -11,3 +11,8 @@ export type CartItem = {
   color?: string
   size?: string
 }
+
+export type ColorType = string[]
+export type SizeType = string[]
+export type SortType = { label: string; orderBy: string }
+export type CollectionsType = { collection: CollectionType }
