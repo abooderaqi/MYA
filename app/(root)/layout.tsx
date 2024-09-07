@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ClerkProvider afterSignOutUrl="/sign-in">
-        <body className={inter.className}>
+        <body className={inter.className} suppressHydrationWarning={true}>
           <QueryProvider>
             <ToasterProvider />
             <Navbar />

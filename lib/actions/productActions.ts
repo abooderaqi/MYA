@@ -26,24 +26,24 @@ export const getProductById = async (id: string) => {
 export const getFilteredProducts = async (filter: FilterOptions) => {
   try {
     let { sort, color, size } = filter
-    const whereClause: any = {};
+    const whereClause: any = {}
 
     if (size.length > 0) {
       whereClause.sizes = {
         hasSome: size,
-      };
+      }
     }
 
     if (color.length > 0) {
       whereClause.colors = {
         hasSome: color,
-      };
+      }
     }
 
     const filterdProducts = await db.product.findMany({
       // [`${sort?.label}`]
       orderBy: [{ [sort.label as string]: sort.orderBy }],
-      where: whereClause
+      where: whereClause,
     })
 
     return filterdProducts
@@ -53,22 +53,20 @@ export const getFilteredProducts = async (filter: FilterOptions) => {
   }
 }
 
-
-
-export const getProductsColors = async (collectionId?: string) => {
+export const getProductsColors = async () => {
   try {
     const products = await db.product.findMany({
       // [`${sort?.label}`]
     })
-    const itemsColorQuantity = new Map<string,number>()
-    products.forEach(product => {
+    const itemsColorQuantity = new Map<string, number>()
+    products.forEach((product) => {
       const productColors = product.colors
-      productColors.forEach(pColor => {
-        if(!itemsColorQuantity.has(pColor)){
+      productColors.forEach((pColor) => {
+        if (!itemsColorQuantity.has(pColor)) {
           itemsColorQuantity.set(pColor, 1)
-        } else  {
+        } else {
           const quantity = itemsColorQuantity.get(pColor) as number
-          itemsColorQuantity.set(pColor,quantity + 1)
+          itemsColorQuantity.set(pColor, quantity + 1)
         }
       })
     })
@@ -79,3 +77,13 @@ export const getProductsColors = async (collectionId?: string) => {
   }
 }
 
+export const getProductsSizes = async () => {
+  try {
+    const products = await db.product.findMany({})
+    const sizes = products.flatMap((product) => product.sizes)
+    return sizes
+  } catch (err) {
+    console.error(err)
+    throw err
+  }
+}
