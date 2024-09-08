@@ -1,5 +1,7 @@
 import ProductList from "@/app/_components/ProdoctList"
 import ColorFilter from "@/app/_components/ui/ColorFilter"
+import Filtering from "@/app/_components/ui/Filtering"
+import MobileFilter from "@/app/_components/ui/MobileFilter"
 import PriceFilter from "@/app/_components/ui/PriceFilter"
 import SizeFilter from "@/app/_components/ui/SizeFilter"
 import SortingFilter from "@/app/_components/ui/SortBy"
@@ -39,28 +41,20 @@ const Product = async ({
 
   return (
     <div className="container flex flex-col items-center gap-16 mt-8 w-full h-full">
-      <div className="flex flex-row gap-2 w-full h-full">
-        <div className="lg:w-fit w-full h-fit sticky top-0 flex flex-col gap-y-5">
-          <h6 className="bg-gray-100 mb-4 px-4 py-2 rounded uppercase typography-headline-6 font-bold tracking-widest">
-            Sort by
-          </h6>
-          <div className="w-[15rem]">
-            <SortingFilter />
-          </div>
-          <h6 className="bg-gray-100 mb-4 px-4 py-2 rounded uppercase typography-headline-6 font-bold tracking-widest">
-            Filter
-          </h6>
-          <div className="w-[15rem]">
-            <ColorFilter colors={mappedColors} />
-          </div>
-          <div className="w-[15rem]">
-            <SizeFilter size={mappedSizes} />
-          </div>
-          <div className="w-[15rem]">
-            <PriceFilter />
-          </div>
+      <div className="flex flex-col lg:flex lg:flex-row gap-2 w-full h-full ">
+        <div className="lg:visible lg-max:hidden">
+          <Filtering mappedColors={mappedColors} mappedSizes={mappedSizes} />
         </div>
-        <ProductList sort={querysort} colors={querycolors} size={querysize} priceRange={castedPriceRange as [number, number]} />
+        <div className="lg:hidden visible w-full h-fit grid grid-cols-3 items-center justify-items-center  ">
+          <MobileFilter mappedColors={mappedColors} mappedSizes={mappedSizes} />
+          <h1 className="text-xl font-bold">All Products</h1>
+        </div>
+        <ProductList
+          sort={querysort}
+          colors={querycolors}
+          size={querysize}
+          priceRange={castedPriceRange as [number, number]}
+        />
       </div>
     </div>
   )

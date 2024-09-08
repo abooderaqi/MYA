@@ -8,23 +8,21 @@ interface ProductListProps {
   sort: string[]
   size: string[]
   colors: string[]
-  priceRange: [number,number]
+  priceRange: [number, number]
 }
 
 const ProductList = async ({
   sort,
   colors,
   size,
-  priceRange
-}:
-  ProductListProps
-) => {
-  const [label, orderBy] = sort 
+  priceRange,
+}: ProductListProps) => {
+  const [label, orderBy] = sort
   const products = await getFilteredProducts({
     sort: { label: label, orderBy: orderBy },
     color: colors,
     size: size,
-    priceRange: priceRange
+    priceRange: priceRange,
   })
 
   return (
@@ -34,8 +32,8 @@ const ProductList = async ({
           <p className="font-bold">No products found</p>
         ) : (
           <div className="w-full flex flex-col items-center">
-            <p className="w-fit p-2 ">{products.length} items</p> 
-            <ul className="relative w-full h-full grid gap-x-[1.5px] gap-y-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 list-none">
+            <p className="w-fit p-2">{products.length} items</p>
+            <ul className="relative w-full h-full grid gap-x-[1.5px] gap-y-2 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 list-none">
               {products?.map((product, index) => (
                 <ProductCard
                   key={product.id + index}

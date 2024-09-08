@@ -48,14 +48,13 @@ const CollectionDetails = async ({
           {collection?.products.length === 0 ? (
             <h1 className="text-4xl ">No Product Added Yet</h1>
           ) : (
-            <div className="px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 flex flex-col gap-4 md:flex-row lg:flex-row xl:flex-row">
+            <ul className="px-4 h-full list-none flex gap-4">
               {collection?.products.map((product) => (
-                <ProductCard
-                  product={product as ProductType}
-                  key={product.id}
-                />
+                <li key={product.id} className="flex gap-8 p-8 flex-wrap">
+                  <ProductCard product={product as ProductType} />
+                </li>
               ))}
-            </div>
+            </ul>
           )}
         </div>
       </div>
