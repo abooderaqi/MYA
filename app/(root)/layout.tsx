@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Lato } from "next/font/google"
+import { Roboto } from "next/font/google"
 import { ClerkProvider } from "@clerk/nextjs"
 
 import "@/app/_styles/globals.css"
@@ -7,8 +7,9 @@ import Navbar from "../_components/Navbar"
 import QueryProvider from "@/lib/providers/queryProvider"
 import ToasterProvider from "@/lib/providers/ToasterProvider"
 import Footer from "../_components/Footer"
+import CustomNavBar from "../_components/CustomNavBar"
 
-const inter = Lato({ subsets: ["latin"], weight: "400" })
+const roboto = Roboto({ subsets: ["latin"], weight: ["100", "300", "400", "500", "700", "900"] })
 
 export const metadata: Metadata = {
   title: "Welcome / MYA Boutique",
@@ -21,9 +22,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en"> 
       <ClerkProvider afterSignOutUrl="/sign-in">
-        <body className={inter.className} suppressHydrationWarning={true}>
+        <body className={roboto.className} suppressHydrationWarning={true}>
           <QueryProvider>
             <ToasterProvider />
             <Navbar />

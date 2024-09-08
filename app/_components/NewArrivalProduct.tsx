@@ -14,12 +14,12 @@ const NewArrivalProduct = () => {
   )
 
   return (
-    <div className="w-full flex flex-col items-center gap-4 p-4">
-      <div className="flex w-full h-full justify-center items-center gap-8 flex-wrap">
+    <div className="w-full h-max items-center">
+      <ul className="container mx-auto relative flex w-full h-full justify-center items-center gap-x-2 list-none">
         {newArrivalProduct?.at(0)?.map((product: ProductType) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} /> 
         ))}
-      </div>
+      </ul>
     </div>
   )
 }

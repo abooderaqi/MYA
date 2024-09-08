@@ -10,7 +10,7 @@ const Slider = () => {
   const [current, setCurrent] = useState(0)
 
   return (
-    <div className="h-[calc(100dvh-80px)] overflow-hidden">
+    <div className="h-[calc(100dvh-60px)] overflow-hidden">
       <div
         className="w-max h-full flex transition-all ease-in-out duration-1000"
         style={{ transform: `translateX(-${current * 100}vw)` }}

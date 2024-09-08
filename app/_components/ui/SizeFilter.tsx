@@ -22,7 +22,6 @@ export default function SizeFilter({ size }: { size: SizeProps[] }) {
   const pathname = usePathname()
   const router = useRouter()
 
-  console.log(selectedSizes)
   const handleSizeSelection = (val: string) => {
     if (selectedSizes.indexOf(val) > -1) {
       setSelectedSizes([...selectedSizes.filter((value) => value !== val)])
@@ -62,9 +61,9 @@ export default function SizeFilter({ size }: { size: SizeProps[] }) {
         </div>
       }
     >
-      <ul className="grid grid-cols-5 gap-2">
+      <ul className="grid grid-cols-5 gap-2 font-medium">
         {size.map(({ id, label, value }) => (
-          <li key={id}>
+          <li key={id} >
             <SfChip
               size="sm"
               className="w-full"

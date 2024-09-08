@@ -5,15 +5,17 @@ import { getFilteredProducts, getProducts } from "@/lib/actions/productActions"
 import { ColorType, ProductType, SizeType, SortType } from "@/types"
 
 interface ProductListProps {
-  sort: string[],
-  size: string[] 
+  sort: string[]
+  size: string[]
   colors: string[]
+  priceRange: [number,number]
 }
 
 const ProductList = async ({
   sort,
   colors,
-  size
+  size,
+  priceRange
 }:
   ProductListProps
 ) => {
@@ -21,26 +23,26 @@ const ProductList = async ({
   const products = await getFilteredProducts({
     sort: { label: label, orderBy: orderBy },
     color: colors,
-    size: size
+    size: size,
+    priceRange: priceRange
   })
- 
+
   return (
     <Suspense fallback={<Spinner />}>
-      <div className="flex">
+      <div className="w-full h-full">
         {!products || products.length === 0 ? (
           <p className="font-bold">No products found</p>
         ) : (
-          <div className="w-full flex flex-col items-center p-4">
-            <p className="text-3xl font-bold">Products</p>
-            <p className="w-fit my-4">{products.length} Items found</p>
-            <div className="flex w-full h-full justify-center items-center gap-8 flex-wrap">
+          <div className="w-full flex flex-col items-center">
+            <p className="w-fit p-2 ">{products.length} items</p> 
+            <ul className="relative w-full h-full grid gap-x-[1.5px] gap-y-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 list-none">
               {products?.map((product, index) => (
                 <ProductCard
                   key={product.id + index}
                   product={product as ProductType}
                 />
               ))}
-            </div>
+            </ul>
           </div>
         )}
       </div>

@@ -27,7 +27,7 @@ const SearchBar = () => {
       />
       <button type="submit" className="cursor-pointer">
         <Search size={16} />
-      </button>
+      </button> 
     </form>
   )
 }

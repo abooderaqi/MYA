@@ -1,4 +1,5 @@
 import { type ClassValue, clsx } from "clsx"
+import { useCallback } from "react"
 import { twMerge } from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {
@@ -12,20 +13,21 @@ export const mapSearchQuery = (param: string): Array<string> => {
   else return paramsArray
 }
 
+
+export const mapPriceRange = (param: string): [number,number] | [] => {
+  if (param === undefined) return []
+  const paramsArray = param.split("-")
+  const from = Number.parseFloat(paramsArray[0])
+  const to = Number.parseFloat(paramsArray[1])
+  return [from,to]
+}
+
 const filterMap: Record<string, [string, string]> = {
   pricedesc: ["price", "desc"],
   priceasc: ["price", "asc"],
   freshness: ["createdAt", "desc"],
 } as const
 
-export const mapSort = (sort: string[]) => {
-  return sort.map((sort) => {
-    return {
-      label: `${sort.at(0)?.toLocaleUpperCase()}${sort.substring(1)}`,
-      value: sort.toLocaleLowerCase(),
-    }
-  })
-}
 
 export const mapSortQuery = (param: string): [string, string] => {
   if (param === undefined) return ["createdAt", "asc"]
@@ -58,11 +60,11 @@ export const mapFilterColors = (colors: Map<string, number>) => {
 }
 
 const sizeLabels: Record<string, string> = {
-  sm: "small",
-  md: "medium",
-  lg: "large",
-  xl: "xlarge",
-  xxl: "2xlarge ",
+  sm: "S",
+  md: "M",
+  lg: "L",
+  xl: "XL",
+  xxl: "2XL ",
 } as const
 export const mapFilterSizes = (sizes: string[]) => {
   // const colorsasArray = Array.from(sizes).map(([key, value]) => ({
@@ -82,3 +84,5 @@ export const MakeArrayUnique = <T>(array: Array<T>): Array<T> => {
   const uniqueArray = new Set(array)
   return Array.from(uniqueArray.values())
 }
+
+

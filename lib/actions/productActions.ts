@@ -4,7 +4,8 @@ import { ColorType, SizeType, SortType } from "@/types"
 interface FilterOptions {
   sort: SortType
   color: ColorType
-  size: SizeType
+  size: SizeType,
+  priceRange: [number, number]
 }
 
 export const getProducts = async () => {
@@ -25,12 +26,19 @@ export const getProductById = async (id: string) => {
 
 export const getFilteredProducts = async (filter: FilterOptions) => {
   try {
-    let { sort, color, size } = filter
+    let { sort, color, size, priceRange } = filter
     const whereClause: any = {}
 
     if (size.length > 0) {
       whereClause.sizes = {
         hasSome: size,
+      }
+    }
+
+    if (priceRange) {
+      whereClause.price = {
+         gte: priceRange[0],
+          lte: priceRange[1]
       }
     }
 
