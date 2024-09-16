@@ -15,7 +15,7 @@ const CollectionDetails = async ({
     <div className="flex justify-center items-center flex-col gap-6 overflow-hidden">
       <section className="w-full ">
         <div
-          className={`relative w-full min-h-[calc(100dvh-80px)] lg:h-[calc(100dvh-80px)] md:h-[calc(100dvh-80px)] flex flex-col justify-center items-center`}
+          className={`relative w-full min-h-[calc(100dvh-152px)]  flex flex-col justify-center items-center`}
         >
           <Image
             src={collection?.image as string}
@@ -48,7 +48,7 @@ const CollectionDetails = async ({
           {collection?.products.length === 0 ? (
             <h1 className="text-4xl ">No Product Added Yet</h1>
           ) : (
-            <ul className="px-4 h-full list-none flex gap-4">
+            <ul className="grid grid-cols-2 lg:grid lg:grid-cols-4 gap-4 w-full items-center justify-center mx-auto">
               {collection?.products.map((product) => (
                 <li key={product.id} className="flex gap-8 p-8 flex-wrap">
                   <ProductCard product={product as ProductType} />
