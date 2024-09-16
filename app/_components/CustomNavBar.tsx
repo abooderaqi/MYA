@@ -597,7 +597,7 @@ export default function CustomNavBar() {
                   className="group mr-2 !text-neutral-900 hover:!bg-neutral-200 hover:!text-neutral-700 active:!bg-neutral-300 active:!text-neutral-900"
                 >
                   <span>{collection.title}</span>
-                  <SfIconChevronRight className="rotate-90 text-neutral-500 group-hover:text-neutral-700 group-active:text-neutral-900" />
+                  {/* <SfIconChevronRight className="rotate-90 text-neutral-500 group-hover:text-neutral-700 group-active:text-neutral-900" /> */}
                 </SfButton>
 
                 {/* {isOpen &&

@@ -3,16 +3,27 @@
 import { useGetCollection } from "@/hooks/useGetCollection"
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const Slider = () => {
   const { collections } = useGetCollection()
   const [current, setCurrent] = useState(0)
 
+  const handleNext = () => {
+    setCurrent((curr) => (curr !== collections?.length! - 1 ? curr + 1 : 0))
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      handleNext()
+    }, 5000)
+    return () => clearTimeout(timer)
+  }, [current])
+
   return (
-    <div className="h-[calc(100dvh-60px)] overflow-hidden">
+    <div className="h-[calc(100dvh-152px)] overflow-hidden">
       <div
-        className="w-max h-full flex transition-all ease-in-out duration-1000"
+        className="w-max mx-auto h-full flex transition-all ease-in-out duration-1000"
         style={{ transform: `translateX(-${current * 100}vw)` }}
       >
         {collections?.map((collection) => (
@@ -42,7 +53,7 @@ const Slider = () => {
           </div>
         ))}
       </div>
-      <div className="absolute m-auto left-1/2 bottom-8 flex gap-4">
+      <div className="absolute mx-auto left-1/2 bottom-8 flex gap-4">
         {collections?.map((collection, index) => (
           <div
             className={`w-3 h-3  rounded-full ring-1 ring-gray-600 cursor-pointer flex items-center justify-center ${

@@ -14,7 +14,7 @@ const Collections = async () => {
         {!collections || collections.length === 0 ? (
           <p className="font-bold">No collection found</p>
         ) : (
-          <div className="flex justify-around">
+          <div className="flex justify-around gap-4">
             {collections?.map((collection) => (
               <Link
                 href={`/collections/${collection.id}`}
