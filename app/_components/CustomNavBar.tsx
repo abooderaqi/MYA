@@ -516,16 +516,6 @@ export default function CustomNavBar() {
           </form>
           <nav className="flex flex-nowrap justify-end items-center md:ml-10 gap-x-1">
             <div className="flex items-center gap-4 xl:gap-6">
-              <div className=" relative cursor-pointer ">
-                <ShoppingCart
-                  onClick={() => setIsCartOpen((open) => !open)}
-                  size={22}
-                />
-                <div className="absolute text-white text-sm rounded-full flex items-center justify-center -top-4 -right-4 w-6 h-6 bg-mya  font-bold">
-                  {cartItems.length}
-                </div>
-                {isCartOpen && <CartModal setIsOpen={setIsCartOpen} />}
-              </div>
               {user && (
                 <>
                   <Link
@@ -547,6 +537,16 @@ export default function CustomNavBar() {
                   LogIn
                 </Link>
               )}
+              <div className=" relative cursor-pointer ">
+                <ShoppingCart
+                  onClick={() => setIsCartOpen((open) => !open)}
+                  size={22}
+                />
+                <div className="absolute text-white text-sm rounded-full flex items-center justify-center -top-4 -right-4 w-6 h-6 bg-mya  font-bold">
+                  {cartItems.length}
+                </div>
+                {isCartOpen && <CartModal setIsOpen={setIsCartOpen} />}
+              </div>
             </div>
           </nav>
           <form
